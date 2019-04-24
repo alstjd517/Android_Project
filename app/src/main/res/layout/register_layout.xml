@@ -131,17 +131,16 @@
                 ></Spinner>
 
             <Button
+                android:id="@+id/registerButton"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
                 android:text="회원가입"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/registerButton"
-                />
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
