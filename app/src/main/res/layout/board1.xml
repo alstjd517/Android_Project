@@ -67,15 +67,36 @@
             android:textColor="@android:color/black"
             android:textSize="40sp" />
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="141dp"
+                    android:layout_height="wrap_content"
+                    android:text="습득 날짜"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:layout_marginBottom="30dp" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/textView5"
@@ -87,15 +108,19 @@
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
 
-                <TextView
-                    android:id="@+id/textView6"
+                <EditText
+                    android:id="@+id/editText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="습득 날짜"
-                    android:textColor="#000000"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    tools:layout_marginBottom="30dp" />
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
                 <TextView
                     android:id="@+id/textView7"
@@ -107,6 +132,20 @@
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
 
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
@@ -116,6 +155,20 @@
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
+
+                <EditText
+                    android:id="@+id/editText7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
                 <TextView
                     android:id="@+id/textView9"
@@ -127,7 +180,20 @@
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
 
-            </LinearLayout>
+                <EditText
+                    android:id="@+id/editText8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
