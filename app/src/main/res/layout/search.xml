@@ -56,6 +56,13 @@
             android:ems="10"
             android:inputType="date" />
 
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 물건 찾기"
+            android:textSize="30sp" />
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
