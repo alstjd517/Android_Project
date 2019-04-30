@@ -168,26 +168,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="121dp"
-                    android:layout_height="wrap_content"
-                    android:text="질문"
-                    android:textColor="#000000"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    tools:layout_marginBottom="30dp" />
-
-                <EditText
-                    android:id="@+id/editText8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    />
-            </TableRow>
+                android:layout_height="match_parent" />
         </TableLayout>
 
         <LinearLayout
