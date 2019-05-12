@@ -34,10 +34,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-
-
         NewAppWidget a = new NewAppWidget();
-
 
 
         TextView registerButton = (TextView)findViewById(R.id.registerButton);
