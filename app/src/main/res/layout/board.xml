@@ -15,12 +15,12 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="393dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="40dp"
+            android:id="@+id/losttitle"
+            android:layout_width="411dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="분실이"
@@ -39,47 +39,49 @@
             tools:layout_editor_absoluteY="136dp">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/acquirepage"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/holo_blue_dark"
+                android:background="@color/acquire"
                 android:text="습득물"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/lostpage"
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/holo_blue_bright"
+                android:background="@color/lost"
                 android:text="분실물"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+
+                />
 
         </LinearLayout>
 
 
-
         <LinearLayout
-            android:layout_width="399dp"
-            android:layout_height="61dp"
+            android:layout_width="411dp"
+            android:layout_height="63dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="187dp">
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="281dp"
+                android:id="@+id/find"
+                android:layout_width="255dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+
                 android:text="검색해보세요"
                 android:textSize="36sp"
                 app:layout_constraintEnd_toStartOf="@+id/button6"
@@ -89,8 +91,8 @@
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="104dp"
-                android:layout_height="45dp"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:background="@android:color/holo_blue_light"
@@ -101,17 +103,6 @@
                 tools:layout_editor_absoluteY="204dp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
     </LinearLayout>
     <Button
         android:id="@+id/write"

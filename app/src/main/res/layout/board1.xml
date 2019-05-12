@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="분실이"
@@ -39,20 +39,20 @@
             tools:layout_editor_absoluteY="136dp">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/acquirepage1"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/holo_blue_dark"
+                android:background="@color/acquire"
                 android:text="습득물"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/lostpage"
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/holo_blue_bright"
+                android:background="@color/lost"
                 android:text="분실물"
                 android:textSize="24sp" />
 
@@ -80,7 +80,7 @@
                     android:layout_width="141dp"
                     android:layout_height="wrap_content"
                     android:text="습득 날짜"
-                    android:textColor="#000000"
+                    android:textColor="#363636"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
@@ -103,7 +103,7 @@
                     android:layout_width="123dp"
                     android:layout_height="wrap_content"
                     android:text="물품명"
-                    android:textColor="#000000"
+                    android:textColor="#363636"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="습득 장소"
-                    android:textColor="#000000"
+                    android:textColor="#363636"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="보관 장소"
-                    android:textColor="#000000"
+                    android:textColor="#363636"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:layout_marginBottom="30dp" />
