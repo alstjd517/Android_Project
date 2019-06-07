@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="lost">#C7F4F0</color>
-    <color name="acquire">#61DBF0</color>
-
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#0277BD</color>
+    <color name="colorAccent">#546E7A</color>
+    <color name="colorWarning">#ED00CB</color>
+    <color name="colorGray">#8C8C8C</color>
 </resources>

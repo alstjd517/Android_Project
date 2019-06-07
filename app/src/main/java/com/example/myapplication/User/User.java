@@ -46,4 +46,12 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public User(String id, String passwd, String name, String num, String gender) {
+        this.id = id;
+        this.passwd = passwd;
+        this.name = name;
+        this.num = num;
+        this.gender = gender;
+    }
 }

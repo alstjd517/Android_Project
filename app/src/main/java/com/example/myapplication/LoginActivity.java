@@ -3,20 +3,28 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
+
 import android.support.v7.app.AlertDialog;
+
+import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 import com.android.volley.RequestQueue;
+
 import com.android.volley.Response;
+
 import com.android.volley.toolbox.Volley;
-import com.example.minseong.myapplication.user.UserActivity;
-import com.example.minseong.myapplication.widget.NewAppWidget;
+
+import com.example.myapplication.User.UserActivity;
+
 
 import org.json.JSONObject;
+
 
 
 public class LoginActivity extends Activity {
@@ -34,7 +42,6 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-        NewAppWidget a = new NewAppWidget();
 
 
         TextView registerButton = (TextView)findViewById(R.id.registerButton);
@@ -73,9 +80,9 @@ public class LoginActivity extends Activity {
 
             public void onClick(View view) {
 
-               final String userID = idText.getText().toString();
+                final String userID = idText.getText().toString();
 
-               final String userPassword = passwordText.getText().toString();
+                final String userPassword = passwordText.getText().toString();
 
 
 
@@ -113,7 +120,7 @@ public class LoginActivity extends Activity {
 
                                     dialog.show();
 
-                                   // LoginActivity.this.startActivity(intent);
+                                    // LoginActivity.this.startActivity(intent);
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
