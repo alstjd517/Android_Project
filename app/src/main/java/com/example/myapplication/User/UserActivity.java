@@ -8,8 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.myapplication.Board.BolistAct;
 import com.example.myapplication.LoginActivity;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
 import java.io.BufferedReader;
@@ -64,7 +64,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity( intent );
                 break;
             case R.id.home:
-                Intent intent2 = new Intent( UserActivity.this, MainActivity.class);
+                Intent intent2 = new Intent( UserActivity.this, BolistAct.class);
 
                 startActivity( intent2 );
         }

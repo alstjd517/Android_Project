@@ -20,6 +20,7 @@ import com.android.volley.Response;
 
 import com.android.volley.toolbox.Volley;
 
+import com.example.myapplication.Board.BolistAct;
 import com.example.myapplication.User.UserActivity;
 
 
@@ -133,7 +134,7 @@ public class LoginActivity extends Activity {
 
                                     dialog.show();
 
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, BolistAct.class);
 
                                     LoginActivity.this.startActivity(intent);
 

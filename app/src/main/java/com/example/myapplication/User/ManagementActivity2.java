@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.myapplication.Board.BolistAct;
 import com.example.myapplication.LoginActivity;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
 import org.json.JSONArray;
@@ -191,7 +191,7 @@ public class ManagementActivity2 extends AppCompatActivity {
                 startActivity( intent );
                 break;
             case R.id.home:
-                Intent intent2 = new Intent( ManagementActivity2.this, MainActivity.class);
+                Intent intent2 = new Intent( ManagementActivity2.this, BolistAct.class);
 
                 startActivity( intent2 );
         }

@@ -11,15 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BoMA">
+        <!--<activity android:name="Board.BoMA">-->
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BolistAct"></activity>
-        <activity android:name=".keyMA"></activity>
+
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".User.UserActivity"></activity>
+        <activity android:name=".User.ManagementActivity2"></activity>
+        <activity android:name=".Board.BolistAct"></activity>
+        <activity android:name="Board.keyMA"></activity>
+        <activity android:name=".Board.BoMA"></activity>
+        <activity android:name=".Board.keyMA"></activity>
+
     </application>
 
 </manifest>
