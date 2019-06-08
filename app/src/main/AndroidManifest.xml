@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
-
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--<activity android:name="Board.BoMA">-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCfVTGLXhpiv8l2QytWsTynQjHwmEjoe6g" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +29,10 @@
         <activity android:name=".User.UserActivity"></activity>
         <activity android:name=".User.ManagementActivity2"></activity>
         <activity android:name=".Board.BolistAct"></activity>
-        <activity android:name="Board.keyMA"></activity>
-        <activity android:name=".Board.BoMA"></activity>
         <activity android:name=".Board.keyMA"></activity>
+        <activity android:name=".Board.BoMA"></activity>
+        <activity android:name=".Board.Cal"></activity>
+        <activity android:name=".Board.Map3"></activity>
 
     </application>
 

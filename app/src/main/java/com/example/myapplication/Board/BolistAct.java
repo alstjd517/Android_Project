@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -52,6 +53,16 @@ public class BolistAct extends Activity {
         list = (ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String, String>>();
         getData("http://203.234.62.111/a/PHP_connection.php"); //수정 필요
+
+        Button btn = (Button)findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BolistAct.this, BoMA.class);
+                startActivity(intent);
+            }
+        });
+
    /*     ListView listView = (ListView) findViewById(R.id.listView);
        listView.setOnItemClickListener(n);*/
 

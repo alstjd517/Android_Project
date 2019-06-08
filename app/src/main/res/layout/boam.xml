@@ -72,6 +72,18 @@
             android:text="입력"
             android:id="@+id/button_main_insert" />
 
+        <Button
+            android:id="@+id/dateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="날짜" />
+
+        <Button
+            android:id="@+id/locBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="위치" />
+
 
         <!--- 디버깅 용 -->
 

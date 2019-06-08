@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication.R;
+import com.example.myapplication.RegisterActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -29,6 +30,8 @@ public class BoMA extends AppCompatActivity {
     private EditText mEditTextlocation;
     private EditText mEditTextdate;
     private EditText mEditTextDetail;
+    private final int REQUEST_CODE_ALPHA = 100;
+    private final int REQUEST_CODE_BETHA = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,39 @@ public class BoMA extends AppCompatActivity {
         mEditTextlocation = (EditText) findViewById(R.id.editText_main_location);
         mEditTextdate = (EditText) findViewById(R.id.editText_main_date);
         mEditTextDetail = (EditText) findViewById(R.id.editText_main_detail);
+
+        Button btn = (Button)findViewById(R.id.dateBtn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BoMA.this, Cal.class);
+                startActivityForResult(intent, REQUEST_CODE_BETHA);
+            }
+        });
+
+        Button btn2 = (Button)findViewById(R.id.locBtn);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BoMA.this, Map3.class);
+                startActivityForResult(intent, REQUEST_CODE_ALPHA);
+            }
+        });
+
+
+
+
+
+        //Intent incomingIntent = getIntent();
+        //String date = incomingIntent.getStringExtra("date");
+        String date = getIntent().getStringExtra("date");
+        mEditTextdate.setText(date);
+
+//        String lat = getIntent().getStringExtra("lat");
+//        String lon = getIntent().getStringExtra("lon");
+//        String latlon = lat + "/" +lon;
+//        mEditTextlocation.setText(latlon);
+
 
 
         Button buttonInsert = (Button) findViewById(R.id.button_main_insert);
@@ -67,7 +103,23 @@ public class BoMA extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK)
+            return;
 
+        if (requestCode == REQUEST_CODE_ALPHA) {
+            String result = data.getStringExtra("lat");
+            //Log.d("TEST", result);
+            mEditTextlocation.setText(result);
+        } else if(requestCode == REQUEST_CODE_BETHA){
+
+            String result = data.getStringExtra("date");
+            //Log.d("TEST", result);
+            mEditTextdate.setText(result);
+        }
+    }
 
     class InsertData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;
