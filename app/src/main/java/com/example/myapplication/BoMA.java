@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,21 +20,22 @@ import java.net.URL;
 public class BoMA extends AppCompatActivity {
 
     private static String IP_ADDRESS = "203.234.62.111";
-    private static String TAG = "apltest3";
+    private static String TAG = "myapplication";
     Intent intent;
     private EditText mEditTextName;
     private EditText mEditTextlocation;
     private EditText mEditTextdate;
-
+    private EditText mEditTextDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.boam);
 
         mEditTextName = (EditText) findViewById(R.id.editText_main_name);
         mEditTextlocation = (EditText) findViewById(R.id.editText_main_location);
         mEditTextdate = (EditText) findViewById(R.id.editText_main_date);
+        mEditTextDetail = (EditText) findViewById(R.id.editText_main_detail);
 
 
         Button buttonInsert = (Button) findViewById(R.id.button_main_insert);
@@ -48,16 +46,17 @@ public class BoMA extends AppCompatActivity {
                 String name = mEditTextName.getText().toString();
                 String location = mEditTextlocation.getText().toString();
                 String date = mEditTextdate.getText().toString();
+                String Detail = mEditTextDetail.getText().toString();
 
                 InsertData task = new InsertData();
-                task.execute("http://" + IP_ADDRESS + "/a/insert.php", name, location, date);
+                task.execute("http://" + IP_ADDRESS + "/a/insert.php", name, location, date,Detail);
 
 
                /* mEditTextName.setText("");
                 mEditTextlocation.setText("ff");
                 mEditTextdate.setText("");*/
 
-                intent = new Intent(getApplicationContext(), BolistAct.class);   // 완료 후 다음 위치
+                intent = new Intent(getApplicationContext(), listAct.class);   // 완료 후 다음 위치
                 startActivity(intent);
 
             }
@@ -95,9 +94,10 @@ public class BoMA extends AppCompatActivity {
             String name = (String) params[1];
             String location = (String) params[2];
             String date = (String) params[3];
+            String Detail = (String) params[4];
 
             String serverURL = (String) params[0];
-            String postParameters = "name=" + name + "&location=" + location + "&date=" + date;
+            String postParameters = "name=" + name + "&location=" + location + "&date=" + date + "&Detail=" + Detail ;
 
 
             try {

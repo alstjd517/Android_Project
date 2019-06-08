@@ -58,6 +58,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText_main_date" />
 
+        <EditText
+            android:layout_margin="5dp"
+            android:hint = "내용."
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_main_detail" />
+
         <Button
             android:layout_margin="5dp"
             android:layout_width="match_parent"

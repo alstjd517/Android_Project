@@ -31,10 +31,12 @@ public class BolistAct extends Activity {
     private static final String TAG_ADD = "location";
     private static final String TAG_Date = "date";
 
+
     JSONArray peoples = null;
 
     ArrayList<HashMap<String, String>> personList;
-    ArrayList<String> al = new ArrayList<String>();
+    static ArrayList<BoSt> al = new ArrayList<BoSt>();
+    static ArrayList<String> aa = new ArrayList<String>();
 
 
     ListView list;
@@ -48,29 +50,20 @@ public class BolistAct extends Activity {
         getData("http://203.234.62.111/a/PHP_connection.php"); //수정 필요
    /*     ListView listView = (ListView) findViewById(R.id.listView);
        listView.setOnItemClickListener(n);*/
-/*        MyAdapter adapter = new MyAdapter(
-                getApplicationContext(),
-                R.layout.list_item, al);
 
-        list.setOnClickListener(new AdapterView.OnItemClickListener(){
+        //   ListView listView = (ListView) findViewById(R.id.listView);
+        BoAdapter adapter = new BoAdapter(this, R.layout.bolist_item, al);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                Intent intent = new Intent(
-                        getApplicationContext(), // 현재화면의 제어권자
-                        view.class);
-
-                //     HashMap<String, String> www =  personList.get(position);
-
-                intent.putExtra("id", al.get(position));
-
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Intent intent = new Intent( getApplicationContext(), keyMA.class);
+                intent.putExtra("id", al.get(position).getMember_id());
                 startActivity(intent);
-
-
             }
-        });*/
+        });
 
 
     }
@@ -87,7 +80,9 @@ public class BolistAct extends Activity {
                 String name = c.getString(TAG_NAME);
                 String location = c.getString(TAG_ADD);
                 String date = c.getString(TAG_Date);
-                al.add(id);
+                BoSt b = new BoSt();
+                b.setMember_id(id);
+                al.add(b);
                 HashMap<String, String> persons = new HashMap<String, String>();
 
                 persons.put(TAG_ID, id);
