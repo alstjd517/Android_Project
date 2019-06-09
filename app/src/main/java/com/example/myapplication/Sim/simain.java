@@ -36,6 +36,7 @@ public class simain extends Activity {
     private static final String TAG_NAME = "name";
     private static final String TAG_ADD = "location";
     private static final String TAG_Date = "date";
+    private static final String TAG_Detail = "Detail";
 
 
     JSONArray peoples = null;
@@ -47,60 +48,137 @@ public class simain extends Activity {
     private EditText mEditText2;
     private EditText mEditText3;
     static ArrayList<simst> a = new ArrayList<simst>();
+    static ArrayList<simst> result = new ArrayList<simst>();
     static ArrayList<resultST>  re =   new ArrayList<resultST>();
+    static ArrayList<Double>  rlist =   new ArrayList<Double>();
+    Double[] words = new Double[4];
+    static String bb2;
+    static String bb3;
+    static String bb4;
+    static String bb5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_item);
+        setContentView(R.layout.detail);
         //list = (ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String, String>>();
         mEditText1 = (EditText) findViewById(R.id.f1);
         mEditText2 = (EditText) findViewById(R.id.f2);
         mEditText3 = (EditText) findViewById(R.id.f2);
 
-        getData("http://203.234.62.111/a/PHP_connection.php"); //수정 필요
+        Button btn = (Button)findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(simain.this,sim.class);
+                intent.putExtra("b2",bb2);
+                intent.putExtra("b3",bb3);
+                intent.putExtra("b4",bb4);
+                intent.putExtra("b5",bb5);
+
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        getData("http://203.234.62.111/a/PHP_connectionlist.php"); //수정 필요
         Button buttonInsert = (Button) findViewById(R.id.button);
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //             getData("http://203.234.62.111/a/PHP_connection.php"); //수정 필요
-                String Name = mEditText1.getText().toString();
+                String name = mEditText1.getText().toString();
                 String Date = mEditText2.getText().toString();
                 String loc = mEditText3.getText().toString();
                 simst ss = new simst();
-
+                String[] ll = loc.split("/");
+                String[] dd = Date.split("/");
                 ArrayList<simst> input = new ArrayList<simst>();
-                ss.setName(Name);
-                ss.setDate(Date);
-                ss.setLoc(loc);
+                input.clear();
+                ss.setName(name);
+                ss.setDate(dd[0]);
+                ss.setDate1(dd[1]);
+                ss.setDate2(dd[1]);
+                ss.setLoc(ll[0]);
+                ss.setLoc1(ll[1]);
                 input.add(ss);
                 double stand = 0;
                 double compar = 0;
                 double numer = 0;
+                double standDate = (Double.parseDouble(input.get(0).getDate1())*30+Double.parseDouble(input.get(0).getDate2()));
+                stand = Math.pow(standDate, 2)
+                        +Math.pow(Double.parseDouble(input.get(0).getLoc()), 2)
+                        +Math.pow(Double.parseDouble(input.get(0).getLoc1()), 2);
 
-                stand += Math.pow(Double.parseDouble(input.get(0).getDate()), 2);
-                stand += Math.pow(Double.parseDouble(input.get(0).getLoc()), 2);
+
                 for (int i = 0; i < a.size(); i++) {
-                    if (input.get(0).getName().equals(a.get(i).getName())) {
-                        compar += Math.pow(Double.parseDouble(a.get(i).getDate()), 2);
-                        compar += Math.pow(Double.parseDouble(a.get(i).getLoc()), 2);
-                        numer += (Double.parseDouble(a.get(i).getDate()) * Double.parseDouble(input.get(0).getDate()));
-                        numer += (Double.parseDouble(a.get(i).getLoc()) * Double.parseDouble(input.get(0).getLoc()));
-                        double denominator = Math.sqrt(compar) * Math.sqrt(stand);
-                        double outcome = numer / denominator;
-                        resultST st = new resultST();
-                        st.setName(a.get(i).getId());
-                        st.setMeasure(outcome);
-                        re.add(st);
-                    }
-                    compar = 0;
-                    numer = 0;
-                }
-                Collections.sort(re);
-                String bb = String.valueOf(re.get((re.size()-1)).getName());
-                TextView profile = (TextView) findViewById(R.id.idtest);
-                profile.setText(bb);
+                    if (input.get(0).getName().contains(a.get(i).getName())) {
+                        double comDate = (Double.parseDouble(a.get(i).getDate1())*30+Double.parseDouble(a.get(i).getDate2()));
+                        compar = Math.pow(comDate, 2)
+                                + Math.pow(Double.parseDouble(a.get(i).getLoc()), 2)
+                                + Math.pow(Double.parseDouble(a.get(i).getLoc1()), 2);
 
+                        numer = (comDate * standDate)
+                                + (Double.parseDouble(a.get(i).getLoc()) * Double.parseDouble(input.get(0).getLoc()))
+                                + (Double.parseDouble(a.get(i).getLoc1()) * Double.parseDouble(input.get(0).getLoc1()));
+                        ;
+                        double denominator = (Math.sqrt(compar) * Math.sqrt(stand));
+                        double outcome = numer / denominator;
+
+
+
+                        if(re.isEmpty()){
+                            simst sim = new simst();
+                            sim.setName(a.get(i).getName());
+                            sim.setLoc(a.get(i).getDate()+"/"+a.get(i).getDate1()+"/"+a.get(i).getDate2());
+                            sim.setDate(a.get(i).getLoc()+"/"+a.get(i).getLoc1());
+                            sim.setDetail(a.get(i).getDetail());
+                            result.add(sim);
+                            resultST st = new resultST();
+                            st.setName(a.get(i).getId());
+                            st.setMeasure(outcome);
+                            re.add(st);
+
+
+                        }else if(!re.isEmpty() && re.get(0).getMeasure()< outcome){
+                            re.clear();
+                            result.clear();
+                            simst sim = new simst();
+                            sim.setName(a.get(i).getName());
+                            sim.setLoc(a.get(i).getDate()+"/"+a.get(i).getDate1()+"/"+a.get(i).getDate2());
+                            sim.setDate(a.get(i).getLoc()+"/"+a.get(i).getLoc1());
+                            sim.setDetail(a.get(i).getDetail());
+                            result.add(sim);
+                            resultST st = new resultST();
+                            st.setName(a.get(i).getId());
+                            st.setMeasure(outcome);
+                            re.add(st);
+
+                        }
+                    }
+
+
+                }
+
+                bb2 = String.valueOf(result.get(0).getName());
+                TextView profile2 = (TextView) findViewById(R.id.name);
+                profile2.setText(bb2);
+
+                bb3 = String.valueOf(result.get(0).getDate());
+                TextView profile3 = (TextView) findViewById(R.id.date);
+                profile3.setText(bb3);
+
+                bb4 = String.valueOf(result.get(0).getLoc());
+                TextView profile4 = (TextView) findViewById(R.id.loc);
+                profile4.setText(bb4);
+
+                bb5 = String.valueOf(result.get(0).getDetail());
+                TextView profile5 = (TextView) findViewById(R.id.Detail);
+                profile5.setText(bb5);
+                result.clear();
+
+                re.clear();
             }
 
         });
@@ -122,29 +200,21 @@ public class simain extends Activity {
                 String name = c.getString(TAG_NAME);
                 String location = c.getString(TAG_ADD);
                 String date = c.getString(TAG_Date);
+                String Detail = c.getString(TAG_Detail);
                 HashMap<String, String> persons = new HashMap<String, String>();
                 simst ss = new simst();
+                String[] loc = location.split("/");
+                String[] dat = date.split("/");
                 ss.setId(id);
                 ss.setName(name);
-                ss.setDate(date);
-                ss.setLoc(location);
+                ss.setDate(dat[0]);
+                ss.setDate1(dat[1]);
+                ss.setDate2(dat[2]);
+                ss.setLoc(loc[0]);
+                ss.setLoc1(loc[1]);
+                ss.setDetail(Detail);
                 a.add(ss);
-    /*            persons.put(TAG_ID, id);
-                persons.put(TAG_NAME, name);
-                persons.put(TAG_ADD, location);
-                persons.put(TAG_Date, date);
-
-                personList.add(persons);*/
             }
-
-           /* ListAdapter adapter = new SimpleAdapter(
-                    sumin.this, personList, R.layout.list_item,
-                    new String[]{TAG_ID, TAG_NAME, TAG_ADD, TAG_Date},
-                    new int[]{R.id.id, R.id.name, R.id.location, R.id.Date}
-            );
-
-            list.setAdapter(adapter);
-*/
         } catch (JSONException e) {
             e.printStackTrace();
         }
