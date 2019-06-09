@@ -18,6 +18,7 @@ import android.widget.SimpleAdapter;
 
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.Sim.simain;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,6 +65,15 @@ public class BolistAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BolistAct.this, BoMA.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn2 = (Button)findViewById(R.id.button2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BolistAct.this, simain.class);
                 startActivity(intent);
             }
         });

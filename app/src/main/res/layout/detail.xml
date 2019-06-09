@@ -20,7 +20,7 @@
             android:text="TextView" />
 
         <EditText
-            android:id="@+id/f1"
+            android:id="@+id/editText_main_name"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:paddingTop="6dip"
@@ -30,7 +30,7 @@
 
 
     <EditText
-        android:id="@+id/f2"
+        android:id="@+id/editText_main_loacation"
         android:layout_width="78dp"
         android:layout_height="wrap_content"
         android:paddingTop="6dip"
@@ -38,7 +38,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/f3"
+        android:id="@+id/editText_main_date"
         android:layout_width="78dp"
         android:layout_height="wrap_content"
         android:paddingTop="6dip"

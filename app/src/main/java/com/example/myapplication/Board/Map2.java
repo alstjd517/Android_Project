@@ -1,53 +1,49 @@
-package com.example.myapplication.Sim;
-
+package com.example.myapplication.Board;
 
 import android.app.FragmentManager;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.myapplication.Board.BolistAct;
+
+import com.example.myapplication.Admin;
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
+
 import com.google.android.gms.maps.GoogleMap;
+
 import com.google.android.gms.maps.MapFragment;
+
 import com.google.android.gms.maps.OnMapReadyCallback;
+
 import com.google.android.gms.maps.model.LatLng;
+
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class sim extends AppCompatActivity implements OnMapReadyCallback {
-    static String rlist ="";
-    static String rlist1 ="";
-    static Double lat2;
-    static Double lon2;
+
+
+public class Map2 extends AppCompatActivity
+
+        implements OnMapReadyCallback {
+    static double lat2 = 0;
+    static double lon2 = 0;
+
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.boitem_list2);
 
-        String b2 = getIntent().getExtras().getString("b2");
-        String b3= getIntent().getExtras().getString("b3");
-        String b4= getIntent().getExtras().getString("b4");
-        String b5= getIntent().getExtras().getString("b5");
+        setContentView(R.layout.map2);
 
-        TextView t1 = (TextView)findViewById(R.id.textView_list_name);
-        TextView t2 = (TextView)findViewById(R.id.textView_list_location);
-        TextView t3 = (TextView)findViewById(R.id.textView_list_date);
-        TextView t4 = (TextView)findViewById(R.id.textView_list_Detail);
-
-        t1.setText(b2);
-        t2.setText(b3);
-        t3.setText(b4);
-        t4.setText(b5);
-
-        String [] split = b3.split("/");
-        rlist =split[0];
-        rlist1 =split[1];
 
         FragmentManager fragmentManager = getFragmentManager();
 
@@ -56,9 +52,10 @@ public class sim extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
-        lat2 = Double.parseDouble(rlist);
-        lon2 = Double.parseDouble(rlist1);
-
+        String lat = getIntent().getExtras().getString("lat");
+        String lon = getIntent().getExtras().getString("lon");
+        lat2 = Double.parseDouble(lat);
+        lon2 = Double.parseDouble(lon);
 
     }
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,17 +71,19 @@ public class sim extends AppCompatActivity implements OnMapReadyCallback {
 
         switch (id) {
             case R.id.logout:
-                Intent intent = new Intent( sim.this, LoginActivity.class);
+                Intent intent = new Intent( Map2.this, LoginActivity.class);
 
                 startActivity( intent );
                 break;
             case R.id.home:
-                Intent intent2 = new Intent( sim.this, BolistAct.class);
+                Intent intent2 = new Intent( Map2.this, BolistAct.class);
 
                 startActivity( intent2 );
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     @Override
 
     public void onMapReady(final GoogleMap map) {
@@ -106,7 +105,9 @@ public class sim extends AppCompatActivity implements OnMapReadyCallback {
 
         map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
 
-        map.animateCamera(CameraUpdateFactory.zoomTo(10));
+        map.animateCamera(CameraUpdateFactory.zoomTo(15));
 
     }
+
+
 }

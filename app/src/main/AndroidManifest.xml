@@ -37,6 +37,9 @@
         <activity android:name=".Board.BoardActivity"></activity>
         <activity android:name=".Board.ManagementActivity3"></activity>
         <activity android:name=".Board.Map2"></activity>
+        <activity android:name=".Sim.simain">
+        </activity>
+        <activity android:name=".Sim.sim"></activity>
 
     </application>
 

@@ -5,14 +5,24 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.example.myapplication.Admin;
+import com.example.myapplication.Board.BoMA;
+import com.example.myapplication.Board.BolistAct;
+import com.example.myapplication.Board.Cal;
+import com.example.myapplication.Board.ManagementActivity3;
+import com.example.myapplication.Board.Map3;
+import com.example.myapplication.LoginActivity;
+import com.example.myapplication.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,12 +32,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 
-public class simain extends Activity {
+public class simain extends AppCompatActivity {
 
     String myJSON;
 
@@ -37,6 +45,8 @@ public class simain extends Activity {
     private static final String TAG_ADD = "location";
     private static final String TAG_Date = "date";
     private static final String TAG_Detail = "Detail";
+    private final int REQUEST_CODE_ALPHA = 100;
+    private final int REQUEST_CODE_BETHA = 200;
 
 
     JSONArray peoples = null;
@@ -60,30 +70,42 @@ public class simain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail);
+        setContentView(R.layout.boam3);
         //list = (ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String, String>>();
         mEditText1 = (EditText) findViewById(R.id.f1);
         mEditText2 = (EditText) findViewById(R.id.f2);
-        mEditText3 = (EditText) findViewById(R.id.f2);
+        mEditText3 = (EditText) findViewById(R.id.f3);
 
-        Button btn = (Button)findViewById(R.id.button2);
+        Button btn = (Button)findViewById(R.id.dateBtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(simain.this,sim.class);
-                intent.putExtra("b2",bb2);
-                intent.putExtra("b3",bb3);
-                intent.putExtra("b4",bb4);
-                intent.putExtra("b5",bb5);
-
-                startActivity(intent);
-                finish();
+                Intent intent = new Intent(simain.this, Cal.class);
+                startActivityForResult(intent, REQUEST_CODE_BETHA);
             }
         });
 
+        Button btn2 = (Button)findViewById(R.id.locBtn);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(simain.this, Map3.class);
+                startActivityForResult(intent, REQUEST_CODE_ALPHA);
+            }
+        });
+
+
+//        Button btn3 = (Button)findViewById(R.id.button_main_insert);
+//        btn3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
         getData("http://203.234.62.111/a/PHP_connectionlist.php"); //수정 필요
-        Button buttonInsert = (Button) findViewById(R.id.button);
+        Button buttonInsert = (Button) findViewById(R.id.button_main_insert);
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,23 +184,32 @@ public class simain extends Activity {
                 }
 
                 bb2 = String.valueOf(result.get(0).getName());
-                TextView profile2 = (TextView) findViewById(R.id.name);
-                profile2.setText(bb2);
+//                TextView profile2 = (TextView) findViewById(R.id.name);
+//                profile2.setText(bb2);
 
                 bb3 = String.valueOf(result.get(0).getDate());
-                TextView profile3 = (TextView) findViewById(R.id.date);
-                profile3.setText(bb3);
+//                TextView profile3 = (TextView) findViewById(R.id.date);
+//                profile3.setText(bb3);
 
                 bb4 = String.valueOf(result.get(0).getLoc());
-                TextView profile4 = (TextView) findViewById(R.id.loc);
-                profile4.setText(bb4);
+//                TextView profile4 = (TextView) findViewById(R.id.loc);
+//                profile4.setText(bb4);
 
                 bb5 = String.valueOf(result.get(0).getDetail());
-                TextView profile5 = (TextView) findViewById(R.id.Detail);
-                profile5.setText(bb5);
+//                TextView profile5 = (TextView) findViewById(R.id.Detail);
+//                profile5.setText(bb5);
                 result.clear();
 
                 re.clear();
+
+                Intent intent = new Intent(simain.this,sim.class);
+                intent.putExtra("b2",bb2);
+                intent.putExtra("b3",bb3);
+                intent.putExtra("b4",bb4);
+                intent.putExtra("b5",bb5);
+
+                startActivity(intent);
+                finish();
             }
 
         });
@@ -188,6 +219,49 @@ public class simain extends Activity {
 
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.actionbar, menu);
+
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.logout:
+                Intent intent = new Intent( simain.this, LoginActivity.class);
+
+                startActivity( intent );
+                break;
+            case R.id.home:
+                Intent intent2 = new Intent( simain.this, BolistAct.class);
+
+                startActivity( intent2 );
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK)
+            return;
+
+        if (requestCode == REQUEST_CODE_ALPHA) {
+            String lat = data.getStringExtra("lat");
+            String lon = data.getStringExtra("lon");
+            String result = lat + "/" +lon;
+            //Log.d("TEST", result);
+            mEditText2.setText(result);
+        } else if(requestCode == REQUEST_CODE_BETHA){
+
+            String result = data.getStringExtra("date");
+            //Log.d("TEST", result);
+            mEditText3.setText(result);
+        }
+    }
 
     protected void showList() {
         try {

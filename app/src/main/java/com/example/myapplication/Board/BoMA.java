@@ -15,7 +15,6 @@ import android.widget.EditText;
 
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.RegisterActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -43,7 +42,7 @@ public class BoMA extends AppCompatActivity {
         setContentView(R.layout.boam2);
 
         mEditTextName = (EditText) findViewById(R.id.editText_main_name);
-        mEditTextlocation = (EditText) findViewById(R.id.editText_main_location);
+        mEditTextlocation = (EditText) findViewById(R.id.editText_main_loacation);
         mEditTextdate = (EditText) findViewById(R.id.editText_main_date);
         mEditTextDetail = (EditText) findViewById(R.id.editText_main_detail);
 
