@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //ID 값을 입력하지 않았다면
                 if(userID.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("ID is empty")
+                    dialog = builder.setMessage("ID를 입력하세요")
                             .setPositiveButton("OK", null)
                             .create();
                     dialog.show();
@@ -91,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){//사용할 수 있는 아이디라면
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("you can use ID")
+                                dialog = builder.setMessage("사용할 수 있는 ID 입니다.")
                                         .setPositiveButton("OK", null)
                                         .create();
                                 dialog.show();
@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 validateButton.setBackgroundColor(getResources().getColor(R.color.colorGray));
                             }else{//사용할 수 없는 아이디라면
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("alreay used ID")
+                                dialog = builder.setMessage("이미 존재하는 ID 입니다.")
                                         .setNegativeButton("OK", null)
                                         .create();
                                 dialog.show();
@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //ID 중복체크를 했는지 확인함
                 if(!validate){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("First Check ID plz")
+                    dialog = builder.setMessage("중복확인을 먼저 해주세요")
                             .setNegativeButton("OK", null)
                             .create();
                     dialog.show();
@@ -145,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //한칸이라도 빠뜨렸을 경우
                 if(userID.equals("")||userPassword.equals("")||userPhone.equals("")||userName.equals("")||userGender.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                    dialog = builder.setMessage("Empty text exist")
+                    dialog = builder.setMessage("모든 내용을 다 입력해주세요")
                             .setNegativeButton("OK", null)
                             .create();
                     dialog.show();
@@ -162,14 +162,14 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){//사용할 수 있는 아이디라면
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("Register Your ID")
+                                dialog = builder.setMessage("가입을 성공하였습니다.")
                                         .setPositiveButton("OK", null)
                                         .create();
                                 dialog.show();
                                 finish();//액티비티를 종료시킴(회원등록 창을 닫음)
                             }else{//사용할 수 없는 아이디라면
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                dialog = builder.setMessage("Register fail")
+                                dialog = builder.setMessage("가입에 실패하였습니다.")
                                         .setNegativeButton("OK", null)
                                         .create();
                                 dialog.show();

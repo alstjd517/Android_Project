@@ -33,6 +33,9 @@
         <activity android:name=".Board.BoMA"></activity>
         <activity android:name=".Board.Cal"></activity>
         <activity android:name=".Board.Map3"></activity>
+        <activity android:name=".Admin"></activity>
+        <activity android:name=".Board.BoardActivity"></activity>
+        <activity android:name=".Board.ManagementActivity3"></activity>
 
     </application>
 

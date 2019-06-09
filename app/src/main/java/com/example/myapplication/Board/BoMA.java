@@ -36,7 +36,7 @@ public class BoMA extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.boam);
+        setContentView(R.layout.boam2);
 
         mEditTextName = (EditText) findViewById(R.id.editText_main_name);
         mEditTextlocation = (EditText) findViewById(R.id.editText_main_location);
@@ -110,8 +110,10 @@ public class BoMA extends AppCompatActivity {
             return;
 
         if (requestCode == REQUEST_CODE_ALPHA) {
-            String result = data.getStringExtra("lat");
-            //Log.d("TEST", result);
+            String lat = data.getStringExtra("lat");
+            String lon = data.getStringExtra("lon");
+            String result = lat + "/" +lon;
+           //Log.d("TEST", result);
             mEditTextlocation.setText(result);
         } else if(requestCode == REQUEST_CODE_BETHA){
 

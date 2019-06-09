@@ -112,7 +112,7 @@ public class LoginActivity extends Activity {
                                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                                    Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                                                    Intent intent = new Intent(LoginActivity.this, Admin.class);
                                                     LoginActivity.this.startActivity(intent);
                                                 }
                                             })
@@ -162,7 +162,7 @@ public class LoginActivity extends Activity {
 
 
 
-                                finish();
+                                //finish();
 
                             }
 

@@ -46,30 +46,7 @@ public class UserActivity extends AppCompatActivity {
 
 
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionbar, menu);
 
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id) {
-            case R.id.logout:
-                Intent intent = new Intent( UserActivity.this, LoginActivity.class);
-
-                startActivity( intent );
-                break;
-            case R.id.home:
-                Intent intent2 = new Intent( UserActivity.this, BolistAct.class);
-
-                startActivity( intent2 );
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     //모든회원에 대한 정보를 가져오기 위한 쓰레드
     class BackgroundTask extends AsyncTask<Void, Void, String> {

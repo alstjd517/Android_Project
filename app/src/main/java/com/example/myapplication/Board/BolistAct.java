@@ -5,6 +5,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,6 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
 
 import org.json.JSONArray;
@@ -26,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class BolistAct extends Activity {
+public class BolistAct extends AppCompatActivity {
 
     String myJSON;
 
@@ -81,6 +86,32 @@ public class BolistAct extends Activity {
         });
 
 
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.actionbar, menu);
+
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.logout:
+                Intent intent = new Intent( BolistAct.this, LoginActivity.class);
+
+                startActivity( intent );
+                break;
+            case R.id.home:
+                Intent intent2 = new Intent( BolistAct.this, BolistAct.class);
+
+                startActivity( intent2 );
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

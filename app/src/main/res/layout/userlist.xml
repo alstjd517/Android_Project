@@ -11,19 +11,12 @@
         android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="43dp"
-            android:layout_height="41dp"
-            app:srcCompat="@drawable/ouo"
-            tools:ignore="VectorDrawableCompat" />
-
         <EditText
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:hint="검색어를 입력하세요!" />
+            android:hint="정보를 검색하세요!" />
     </TableRow>
 
     <ListView
