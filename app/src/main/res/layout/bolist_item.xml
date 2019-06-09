@@ -9,31 +9,35 @@
 
     <TextView
         android:id="@+id/id"
-        android:layout_width="78dp"
+        android:layout_width="62dp"
         android:layout_height="wrap_content"
         android:paddingTop="6dip"
         android:paddingBottom="2dip"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="108dp"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="108dp"
+        android:layout_width="152dp"
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="#ffffff"
+        android:textSize="0dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Date"
-        android:layout_width="108dp"
+        android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:gravity="left"
+        android:gravity="center"
         android:textStyle="bold" />
 
 

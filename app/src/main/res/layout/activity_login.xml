@@ -11,19 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="225dp"
-            android:orientation="vertical"
+            android:layout_height="255dp"
             android:background="@color/colorPrimary"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/ic_sentiment_satisfied_black_24dp"
-                />
+                android:src="@drawable/ic_sentiment_satisfied_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="~~"
+                android:text="7조"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
                 android:textStyle="bold" />

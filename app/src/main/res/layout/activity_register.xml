@@ -62,7 +62,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="#FF5722"
-                    android:text="Check ID"
+                    android:text="중복확인"
                     android:textColor="#ffffff"
                     android:textSize="15dp"
                     android:textStyle="bold" />

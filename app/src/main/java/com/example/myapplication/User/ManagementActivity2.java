@@ -11,7 +11,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.myapplication.Admin;
 import com.example.myapplication.Board.BolistAct;
+import com.example.myapplication.Board.Map3;
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
 
@@ -173,6 +175,7 @@ public class ManagementActivity2 extends AppCompatActivity {
 
     }
 
+
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
@@ -191,7 +194,7 @@ public class ManagementActivity2 extends AppCompatActivity {
                 startActivity( intent );
                 break;
             case R.id.home:
-                Intent intent2 = new Intent( ManagementActivity2.this, BolistAct.class);
+                Intent intent2 = new Intent( ManagementActivity2.this, Admin.class);
 
                 startActivity( intent2 );
         }

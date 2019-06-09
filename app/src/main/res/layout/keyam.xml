@@ -15,21 +15,31 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
-            android:layout_margin="5dp"
+            android:id="@+id/listView_main_list"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="6"
-            android:id="@+id/listView_main_list" />
+            android:layout_height="428dp"
+            android:layout_margin="5dp"
+            android:layout_weight="6">
+
+        </android.support.v7.widget.RecyclerView>
 
 
         <!--- 디버깅 용 -->
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:text="Button" />
+
         <TextView
+            android:id="@+id/textView_main_debug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:text="디버깅 용"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_main_debug" />
+            android:textColor="#ffffff" />
 
         <TextView
             android:layout_margin="5dp"
@@ -37,7 +47,8 @@
             android:scrollbars = "vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5" />
+            android:layout_weight="1.5"
+            android:textColor="#ffffff"/>
     </LinearLayout>
 
 
