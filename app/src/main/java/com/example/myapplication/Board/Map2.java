@@ -105,7 +105,7 @@ public class Map2 extends AppCompatActivity
 
         map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
 
-        map.animateCamera(CameraUpdateFactory.zoomTo(15));
+        map.animateCamera(CameraUpdateFactory.zoomTo(10));
 
     }
 

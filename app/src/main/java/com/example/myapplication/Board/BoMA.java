@@ -45,6 +45,7 @@ public class BoMA extends AppCompatActivity {
         mEditTextlocation = (EditText) findViewById(R.id.editText_main_loacation);
         mEditTextdate = (EditText) findViewById(R.id.editText_main_date);
         mEditTextDetail = (EditText) findViewById(R.id.editText_main_detail);
+        mEditTextDetail.setHorizontallyScrolling(false);
 
         Button btn = (Button)findViewById(R.id.dateBtn);
         btn.setOnClickListener(new View.OnClickListener() {
